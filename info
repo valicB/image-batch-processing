@@ -1,0 +1,17 @@
+aplicatia trebuie automat sa prelucreze imaginile gasite in mapa "original". Cele prelucrate le pune in "done"
+
+1) start (scan  directory original ... ->)
+2) * watch (directory original) (smart regim)
+
+! original -> 200x200 px
+  * config
+
+
+  npm install node-gd         -> local
+  npm install node-gd --save  -> local + dependecy
+  npm install node-gd -g      -> global
+
+  npm install pica --save
+  npm install resize-img --save
+
+  npm update -g
