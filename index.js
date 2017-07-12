@@ -19,13 +19,21 @@ function processImg(name){
   )
   .then(buf => {
     [filename,ext] = name.split('.');
-      // fs.writeFileSync(`./done/small_${filename}.${ext}`, buf);
-      fs.writeFileSync('./done/small_'+filename+'.'+ ext, buf);
+      fs.writeFileSync(`./done/small_${filename}.${ext}`, buf);
+      // fs.writeFileSync('./done/small_'+filename+'.'+ ext, buf);
+      fs.unlinkSync(`./original/${name}`);
   });
 }
-
+// directory file watcher
+function watcher() {
+    fs.watch('./original/', function(event, filename) {
+        // console.log("Event: " + event);
+        // console.log(filename);
+        processAll();
+    }); // fs.watch()
+} 
 // processImg('1.jpg');
-processAll();
-
+// processAll();
+watcher();
 // daca imaginea a fost prelucrata, sa fie stearsa din mapa original
 // fs.watch
